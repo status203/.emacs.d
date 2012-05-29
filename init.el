@@ -1,7 +1,11 @@
+(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "gb")
+
 ; some tricks from the emacs-starter-kit v2
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -9,12 +13,23 @@
 
 ;; starter-kit-eshell starter-kit-js starter-kit-ruby)
 ;; Add in your own as you wish:
-(defvar my-packages '(starter-kit starter-kit-bindings clojure-mode midje-mode slime)
+(defvar my-packages '(starter-kit
+                      starter-kit-bindings
+                      clojure-mode
+                      midje-mode
+                      slime
+                      rainbow-delimiters
+                      ergoemacs-keybindings)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
+
+;; hack
+(load-file "~/.emacs.d/ergoemacs-keybindings-5.3.9/ergoemacs-mode.el")
+(ergoemacs-mode 1)
+
 
 ;; =============================================================================
 ;; Autocomplete setup
