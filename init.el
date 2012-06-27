@@ -1,4 +1,4 @@
-;;(setenv "ERGOEMACS_KEYBOARD_LAYOUT" "gb")
+;;(Setenv "ERGOEMACS_KEYBOARD_LAYOUT" "gb")
 
 ; some tricks from the emacs-starter-kit v2
 (require 'package)
@@ -15,6 +15,7 @@
 ;; Add in your own as you wish:
 (defvar my-packages '(starter-kit
                       starter-kit-bindings
+                      slime-repl
                       clojure-mode
                       midje-mode
                       rainbow-delimiters)
@@ -48,13 +49,13 @@
 (add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
 
 ; add color into the repl via clojure-jack-in
-;;(add-hook 'slime-repl-mode-hook
-;;         (defun clojure-mode-slime-font-lock ()
-;;           (let (font-lock-mode)
-;;             (clojure-mode-font-lock-setup))))
+(add-hook 'slime-repl-mode-hook
+         (defun clojure-mode-slime-font-lock ()
+           (let (font-lock-mode)
+             (clojure-mode-font-lock-setup))))
 
 ;; paredit mode in the repl
-;;(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
 
 ;; =============================================================================
 ;; Clojurescript config
