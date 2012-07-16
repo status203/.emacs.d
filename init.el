@@ -15,9 +15,7 @@
 ;; Add in your own as you wish:
 (defvar my-packages '(starter-kit
                       starter-kit-bindings
-                      slime-repl
                       clojure-mode
-                      midje-mode
                       rainbow-delimiters)
   "A list of packages to ensure are installed at launch.")
 
@@ -44,8 +42,6 @@
 
 (require 'clojure-mode)
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
-(require 'midje-mode)
-(add-hook 'clojure-mode-hook 'midje-mode)
 (add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
 
 ; add color into the repl via clojure-jack-in
