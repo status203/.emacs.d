@@ -16,7 +16,9 @@
 (defvar my-packages '(starter-kit
                       starter-kit-bindings
                       clojure-mode
-                      rainbow-delimiters)
+                      rainbow-delimiters
+                      nrepl
+                      nrepl-ritz)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
@@ -52,6 +54,9 @@
 
 ;; paredit mode in the repl
 (add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+
+;;
+(add-to-list 'same-window-buffer-names "*nrepl*")
 
 ;; =============================================================================
 ;; Clojurescript config

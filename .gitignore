@@ -1,0 +1,8 @@
+/elpa/
+/backups/
+.smex-items
+/auto-save-list/
+places
+session.*
+/swank/
+/url/
