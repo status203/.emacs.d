@@ -46,14 +46,8 @@
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
 
-; add color into the repl via clojure-jack-in
-(add-hook 'slime-repl-mode-hook
-         (defun clojure-mode-slime-font-lock ()
-           (let (font-lock-mode)
-             (clojure-mode-font-lock-setup))))
-
 ;; paredit mode in the repl
-(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'nrepl-mode-hook (lambda () (paredit-mode +1)))
 
 ;;
 (add-to-list 'same-window-buffer-names "*nrepl*")
